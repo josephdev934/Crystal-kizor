@@ -26,11 +26,6 @@ function EmailIcon() {
   );
 }
 
-// A visible marker for something Crystal has not supplied. Remove each one when its real value arrives.
-function Placeholder({ children }: { children: string }) {
-  return <span className="border border-dashed border-clay-hover px-1 py-0.5 text-label font-semibold text-ink">[{children}]</span>;
-}
-
 // Calm, light closing section. Brands without a supplied link show as plain text until Crystal sends one.
 export default function ContactSection({ index }: { index: number }) {
   return (
@@ -46,7 +41,7 @@ export default function ContactSection({ index }: { index: number }) {
             <Button href={contact.primary.href}>{contact.primary.label}</Button>
           </div>
 
-          {/* Secondary links. Placeholders stay visible here on purpose: nothing is invented. */}
+          {/* Secondary links. Nothing is invented: the email icon is not a link until Crystal supplies an address. */}
           <ul className="mt-8 flex list-none flex-col gap-4 p-0">
             <li className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a
@@ -61,7 +56,6 @@ export default function ContactSection({ index }: { index: number }) {
               <TextLink href={contact.linkedin.href} className="no-underline">
                 {contact.linkedin.label}
               </TextLink>
-              <Placeholder>{contact.linkedin.todo}</Placeholder>
             </li>
             <li className="flex flex-wrap items-center gap-x-4 gap-y-2">
               {/* No address supplied, so this is not a link yet. Make it a mailto: link when Crystal sends one. */}
@@ -69,7 +63,6 @@ export default function ContactSection({ index }: { index: number }) {
                 <EmailIcon />
               </span>
               <span className="text-label font-semibold uppercase tracking-label">Email</span>
-              <Placeholder>{contact.emailTodo}</Placeholder>
             </li>
           </ul>
         </Reveal>

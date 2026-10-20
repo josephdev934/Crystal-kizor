@@ -9,7 +9,7 @@ const { hero } = content;
 const label = "text-label font-semibold uppercase tracking-label";
 
 // Dark page, rounded photo frame inset 16px. Headline sits bottom left over a warm dark gradient.
-// The fixed header (wordmark, Work with her, MENU) floats above the top of the frame.
+// The fixed header (wordmark, Work with me, MENU) floats above the top of the frame.
 export default function HeroSection({ index }: { index: number }) {
   return (
     <SectionPanel id="top" bg="bg-stone-dark" text="text-white-warm" index={index} contentClass="p-4">

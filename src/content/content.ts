@@ -37,7 +37,7 @@ export const content = {
     idea: "Building better for people and place.",
     year: 2026,
     hireUrl: HIRE_URL,
-    hireLabel: "Work with her",
+    hireLabel: "Work with me",
   },
 
   menu: [
@@ -54,7 +54,7 @@ export const content = {
   hero: {
     headline: "I show how we can build better homes, buildings and cities for hot climates.",
     support: "Architect, designer, entrepreneur, speaker, researcher and creator.",
-    primary: { label: "See her work", href: "#studio-coka" },
+    primary: { label: "See my work", href: "#studio-coka" },
     secondary: { label: "Get in touch", href: "#contact" },
     image: nature("terrace-exterior", 768, 1024, "the two-storey white facade with a shaded ground-floor veranda, tall louvred windows and a timber screen"),
   },
@@ -125,7 +125,7 @@ export const content = {
       {
         name: "House of the Future",
         location: "UAE",
-        status: "2025 prototype",
+        status: "Prototype",
         description: "A home around a courtyard with a layered mashrabiya screen for air, shade and light.",
         todo: "TODO: project images",
         images: [],
@@ -194,7 +194,7 @@ export const content = {
     heading: "Speaking. Writing. Sharing.",
     speaking: {
       title: "Speaking",
-      text: "TEDx talk on integrating Indigenous Architecture into modern living (2025).",
+      text: "TEDx talk on integrating Indigenous Architecture into modern living.",
       button: { label: "Get in touch", href: undefined as string | undefined },
       todo: "TODO: speaking contact route",
     },
