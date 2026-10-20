@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@plugin "../../hero.ts";
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,mjs}";

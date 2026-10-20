@@ -1,0 +1,22 @@
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, rename 'C:\Users\HomePC\Documents\Crystal Kizor\node_modules\@react-types\table\LICENSE' -> 'C:\Users\HomePC\Documents\Crystal Kizor\node_modules\@react-types\table\LICENSE.DELETE.71db1973f1260898adfea9e74a59238d'
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\HomePC\\Documents\\Crystal Kizor\\node_modules\\@react-types\\listbox',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\HomePC\Documents\Crystal Kizor\node_modules\@react-types\listbox\node_modules'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\HomePC\\Documents\\Crystal Kizor\\node_modules\\@react-types\\listbox\\node_modules'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ECONNRESET
+npm error syscall read
+npm error errno -4077
+npm error network read ECONNRESET
+npm error network This is a problem related to network connectivity.
+npm error network In most cases you are behind a proxy or have bad network settings.
+npm error network
+npm error network If you are behind a proxy, please make sure that the
+npm error network 'proxy' config is set properly.  See: 'npm help config'
+npm error A complete log of this run can be found in: C:\Users\HomePC\AppData\Local\npm-cache\_logs\2026-10-20T10_18_01_907Z-debug-0.log

@@ -1,0 +1,127 @@
+/* Design tokens from CLAUDE.md. Tailwind v4 turns every --color-*, --text-*, --radius-*,
+   --spacing-* below into utilities (bg-canvas, text-ink, rounded-xl, py-section ...). */
+@theme {
+  /* Colours */
+  --color-canvas: #f3eee5;
+  --color-surface: #e8e0d4;
+  --color-surface-muted: #d5c8b7;
+  --color-sand: #b5a18a;
+  --color-taupe: #c2ad96;
+  --color-clay: #a75f3b;
+  --color-clay-hover: #8f4d30;
+  --color-ink: #28251f;
+  --color-stone-dark: #302b25;
+  --color-text-muted: #71685e; /* ONLY on canvas or surface. Use ink on taupe/sand. */
+  --color-border: #c9bdae;
+  --color-border-dark: #62584d;
+  --color-white-warm: #faf7f1;
+  --color-overlay: rgb(40 37 31 / 38%);
+
+  /* Type scale (size + line-height pairs) */
+  --text-hero: clamp(3rem, 8vw, 7rem);
+  --text-hero--line-height: 0.92;
+  --text-h1: clamp(2.75rem, 6vw, 6rem);
+  --text-h1--line-height: 1.02;
+  --text-h2: clamp(2.375rem, 5vw, 5rem);
+  --text-h2--line-height: 1.02;
+  --text-h3: clamp(1.875rem, 3vw, 3rem);
+  --text-h3--line-height: 1.02;
+  /* between h3 and h2: long quotes and big numbers */
+  --text-display-md: clamp(2rem, 3.6vw, 3.5rem);
+  --text-display-md--line-height: 1.02;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.6;
+  --text-label: 0.75rem; /* 12px minimum */
+  --text-label--line-height: 1.5;
+
+  --tracking-tight: -0.045em;
+  --tracking-label: 0.12em;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+
+  /* Layout */
+  --spacing-gutter: clamp(24px, 5vw, 80px);
+  --spacing-section: clamp(64px, 10vw, 160px);
+  --container-content: 1360px;
+  --container-reading: 680px;
+
+  /* Motion */
+  --ease-motion: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Scroll-driven effects (TextReveal, ParallaxImage). Opacity and transform only. */
+  --animate-word-in: word-in linear both;
+  --animate-parallax: parallax linear both;
+  /* Menu links rise in one after another each time the menu opens */
+  --animate-menu-in: menu-in 600ms var(--ease-motion) both;
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  --animate-unfurl: unfurl linear both;
+  --animate-drift-up: drift-up linear both;
+  --animate-drift-down: drift-down linear both;
+  /* Unfurling gallery: a tile tips up from a slight tilt as it enters, columns drift at different speeds */
+  @keyframes unfurl {
+    from {
+      opacity: 0.2;
+      transform: perspective(1200px) rotateX(28deg) translateY(48px) scale(0.94);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1200px) rotateX(0) translateY(0) scale(1);
+    }
+  }
+  @keyframes drift-up {
+    from {
+      transform: translateY(8%);
+    }
+    to {
+      transform: translateY(-8%);
+    }
+  }
+  @keyframes drift-down {
+    from {
+      transform: translateY(-6%);
+    }
+    to {
+      transform: translateY(6%);
+    }
+  }
+  @keyframes word-in {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes parallax {
+    from {
+      transform: translateY(-7%) scale(1.15);
+    }
+    to {
+      transform: translateY(7%) scale(1.15);
+    }
+  }
+}
+
+/* Fonts are set by next/font in layout.tsx */
+@theme inline {
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-dm-sans), Arial, sans-serif;
+  /* Hero headline only. To try a heavy condensed sans, load it in layout.tsx and point this at it. */
+  --font-hero: var(--font-cormorant), Georgia, serif;
+}
+
