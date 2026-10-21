@@ -1,5 +1,6 @@
 ﻿import { content } from "@/content/content";
-import ProjectSlider from "@/components/galleries/ProjectSlider";
+import PortfolioGallery from "@/components/galleries/PortfolioGallery";
+import ProjectList from "@/components/galleries/ProjectList";
 import UnfurlGallery from "@/components/galleries/UnfurlGallery";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -36,11 +37,15 @@ export default function StudioCokaSection({ index }: { index: number }) {
         </Reveal>
 
         <div className="mt-12 md:mt-20">
-          <ProjectSlider projects={studio.projects} />
+          <PortfolioGallery projects={studio.projects} />
+        </div>
+
+        <div className="mt-8 md:mt-12">
+          <ProjectList projects={studio.projects} />
         </div>
 
         <div className="mt-16 md:mt-24">
-          <UnfurlGallery images={studio.projects.flatMap((project) => project.images).slice(0, 12)} />
+          <UnfurlGallery images={studio.projects.flatMap((project) => project.images)} />
         </div>
 
         <div className="mt-12">

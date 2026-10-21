@@ -82,7 +82,7 @@ export const content = {
 
   proof: {
     label: "The Proof",
-    image: img("community-centre/exterior", 1800, 1349, ""),
+    image: img("community-centre/shaded-walkway", 1800, 2400, ""),
     metrics: [
       { value: "100,000+", label: "sqm designed and coordinated" },
       { value: "About 95%", label: "less diesel at an off-grid eye hospital" },

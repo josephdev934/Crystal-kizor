@@ -37,16 +37,14 @@ export default function ProjectSlider({ projects }: { projects: Project[] }) {
         if (e.key === "ArrowLeft") go(-1);
       }}
     >
+      {/* A project with no photos shows no photo area at all */}
+      {main && (
       <div className="grid gap-4 lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-8">
-          {main ? (
-            photoButton(
-              0,
-              `Open ${project.name} photo gallery`,
-              <ImageFrame image={main} sizes="(min-width: 1024px) 60vw, 100vw" className="aspect-[4/5] w-full sm:aspect-[4/3] lg:aspect-[4/3.4]" />,
-            )
-          ) : (
-            <ImageFrame placeholder={`TODO: photos of ${project.name}`} className="aspect-[4/5] w-full rounded-lg sm:aspect-[4/3] lg:aspect-[4/3.4]" />
+          {photoButton(
+            0,
+            `Open ${project.name} photo gallery`,
+            <ImageFrame image={main} sizes="(min-width: 1024px) 60vw, 100vw" className="aspect-[4/5] w-full sm:aspect-[4/3] lg:aspect-[4/3.4]" />,
           )}
         </div>
 
@@ -58,9 +56,19 @@ export default function ProjectSlider({ projects }: { projects: Project[] }) {
           </div>
         )}
       </div>
+      )}
+
+      {/* Every other photo of the project, so all of them show when you click next */}
+      {project.images.length > 3 && (
+        <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:mt-6 lg:grid-cols-6 lg:gap-6">
+          {project.images.slice(3).map((image, i) =>
+            photoButton(i + 3, `Open ${project.name} photo ${i + 4}`, <ImageFrame image={image} sizes="(min-width: 1024px) 15vw, 33vw" className="aspect-[3/4] w-full" />),
+          )}
+        </div>
+      )}
 
       {/* Details: name, place, counter and controls. aria-live announces the change. */}
-      <div className="mt-8 grid gap-6 border-t border-border pt-6 md:grid-cols-12 md:gap-10">
+      <div className={`grid gap-6 border-t border-border pt-6 md:grid-cols-12 md:gap-10 ${main ? "mt-8" : ""}`}>
         <div className="md:col-span-5">
           <p className="m-0 text-label font-semibold tracking-label">
             {pad(current + 1)} ——— {pad(projects.length)}

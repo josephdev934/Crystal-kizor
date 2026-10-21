@@ -69,34 +69,55 @@
       transform: translateY(0);
     }
   }
-  --animate-unfurl: unfurl linear both;
-  --animate-drift-up: drift-up linear both;
-  --animate-drift-down: drift-down linear both;
-  /* Unfurling gallery: a tile tips up from a slight tilt as it enters, columns drift at different speeds */
-  @keyframes unfurl {
+  --animate-rise-a: rise-a linear both;
+  --animate-rise-b: rise-b linear both;
+  /* Portfolio gallery: cards fly up from below and straighten as the row scrolls into view, odd ones from further down */
+  @keyframes rise-a {
     from {
-      opacity: 0.2;
-      transform: perspective(1200px) rotateX(28deg) translateY(48px) scale(0.94);
+      opacity: 0;
+      transform: translateY(180px) rotate(-10deg) scale(0.9);
     }
     to {
       opacity: 1;
-      transform: perspective(1200px) rotateX(0) translateY(0) scale(1);
+      transform: none;
     }
   }
-  @keyframes drift-up {
+  @keyframes rise-b {
     from {
-      transform: translateY(8%);
+      opacity: 0;
+      transform: translateY(300px) rotate(10deg) scale(0.9);
     }
     to {
-      transform: translateY(-8%);
+      opacity: 1;
+      transform: none;
     }
   }
-  @keyframes drift-down {
+  --animate-matrix: matrix linear both;
+  --animate-col-up: col-up linear both;
+  --animate-col-down: col-down linear both;
+  /* Unfurling gallery: the grid swings from a deep 3D tilt to nearly flat, columns slide at different paces */
+  @keyframes matrix {
     from {
-      transform: translateY(-6%);
+      transform: rotateX(25deg) rotateY(-45deg) rotateZ(15deg) translateZ(-800px);
     }
     to {
-      transform: translateY(6%);
+      transform: rotateX(4deg) rotateY(-8deg) rotateZ(2deg) translateZ(0);
+    }
+  }
+  @keyframes col-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-30%);
+    }
+  }
+  @keyframes col-down {
+    from {
+      transform: translateY(-30%);
+    }
+    to {
+      transform: translateY(10%);
     }
   }
   @keyframes word-in {
