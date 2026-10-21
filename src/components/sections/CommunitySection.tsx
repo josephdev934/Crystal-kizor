@@ -1,5 +1,4 @@
 import { content } from "@/content/content";
-import PhotoStrip from "@/components/galleries/PhotoStrip";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Reveal from "@/components/ui/Reveal";
@@ -25,17 +24,10 @@ export default function CommunitySection({ index }: { index: number }) {
         <div className="mt-12 grid gap-16 md:grid-cols-2 md:gap-12">
           {impact.items.map((item, i) => (
             <Reveal key={item.name} delay={i * 120} className={i === 1 ? "md:mt-24" : ""}>
-              {i === 0 ? (
-                // AKO Alliance: no photo frame. The name itself is the card, in large uppercase type.
-                <div className="flex aspect-4/3 w-full items-end rounded-xl border border-ink/40 bg-surface p-6 md:p-10">
-                  <h3 className={`m-0 ${identities[i]}`}>{item.name}</h3>
-                </div>
-              ) : (
-                <>
-                  <PhotoStrip placeholder={item.photo} caption={item.name} />
-                  <h3 className={`mt-6 ${identities[i]}`}>{item.name}</h3>
-                </>
-              )}
+              {/* No photo frame. The name itself is the card, set in each initiative's own type. */}
+              <div className="flex aspect-4/3 w-full items-end rounded-xl border border-ink/40 bg-surface p-6 md:p-10">
+                <h3 className={`m-0 ${identities[i]}`}>{item.name}</h3>
+              </div>
               <p className="mt-6 max-w-reading text-body-lg text-text-muted">{item.text}</p>
               <div className="mt-8 flex flex-col items-start gap-3">
                 <Button href={item.href} variant="secondary">
